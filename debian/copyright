@@ -1,0 +1,9 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0
+Upstream-Name: opensim
+Upstream-Contact: opensim@stanford.edu
+Source: https://opensim.stanford.edu
+
+Files: *
+Copyright: 2005-15, Stanford University and the Authors.
+License: Apache
+ See '/usr/share/common-licenses/Apache-2.0'

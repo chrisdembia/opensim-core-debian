@@ -1,0 +1,114 @@
+
+Source: opensim
+Maintainer: Christopher Dembia <cld72@cornell.edu>
+Section: science
+Priority: extra
+Standards-Version: 3.9.2
+Build-Depends: debhelper (>= 9),
+               cmake,
+               doxygen,
+               libsimbody4.0-dev,
+               swig
+Vcs-Browser: https://github.com/opensim-org/opensim-core
+Vcs-Git: git://github.com/opensim-org/opensim-core.git
+Homepage: https://opensim.stanford.edu
+
+Package: libopensim4.0
+Architecture: any
+Section: libs
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Multi-Arch: same
+Description: OpenSim musculoskeletal modeling/simulation - shared libraries
+ OpenSim is a software platform for modeling humans, animals,
+ robots, and the environment, and simulating their interaction and movement. 
+ The software is used by the musculoskeletal biomechanics research
+ community. The core OpenSim libraries are written in C++.
+
+Package: libopensim4.0-dev
+Architecture: any
+Section: libdevel
+Depends: libopensim4.0 (= ${binary:Version}),
+         ${misc:Depends}
+Suggests: opensim-doc,
+          opensim-dexamples
+Multi-Arch: same
+Description: OpenSim musculoskeletal modeling/simulation - development files
+ OpenSim is a software platform for modeling humans, animals,
+ robots, and the environment, and simulating their interaction and movement. 
+ The software is used by the musculoskeletal biomechanics research
+ community. The core OpenSim libraries are written in C++.
+ .
+ This package contains development files (headers and shared library
+ symbolic links)
+
+Package: opensim4.0
+Architecture: any
+Section: interpreters
+Depends: libopensim4.0 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Suggests: opensim4.0-doc,
+          opensim4.0-examples
+Description: OpenSim musculoskeletal modeling/simulation - executables
+ OpenSim is a software platform for modeling humans, animals,
+ robots, and the environment, and simulating their interaction and movement. 
+ The software is used by the musculoskeletal biomechanics research
+ community. The core OpenSim libraries are written in C++.
+ .
+ This package contains command-line executable tools.
+
+Package: opensim4.0-doc
+Architecture: all
+Section: doc
+Depends: ${misc:Depends}
+Multi-Arch: foreign
+Description: OpenSim musculoskeletal modeling/simulation - documentation
+ OpenSim is a software platform for modeling humans, animals,
+ robots, and the environment, and simulating their interaction and movement. 
+ The software is used by the musculoskeletal biomechanics research
+ community. The core OpenSim libraries are written in C++.
+ .
+ This package contains C++ API doxygen documentation.
+
+Package: python-opensim4.0
+Architecture: any
+Section: python
+Depends: libopensim4.0 (= ${binary:Version}),
+         ${misc:Depends},
+         ${python:Depends},
+         ${shlibs:Depends}
+Description: Bindings for OpenSim musculoskeletal modeling/simulation library
+ OpenSim is a software platform for modeling humans, animals,
+ robots, and the environment, and simulating their interaction and movement. 
+ The software is used by the musculoskeletal biomechanics research
+ community. The core OpenSim libraries are written in C++.
+ .
+ This package contains Python bindings to the OpenSim C++ library.
+
+Package: libopensim4.0-java
+Architecture: any
+Depends: libopensim4.0 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Bindings for OpenSim musculoskeletal modeling/simulation library
+ OpenSim is a software platform for modeling humans, animals,
+ robots, and the environment, and simulating their interaction and movement. 
+ The software is used by the musculoskeletal biomechanics research
+ community. The core OpenSim libraries are written in C++.
+ .
+ This package contains Java bindings to the OpenSim C++ library.
+
+Package: opensim4.0-examples
+Architecture: all
+Section: doc
+Depends: ${misc:Depends}
+Suggests: libopensim4.0-dev,
+          opensim4.0-doc
+Description: OpenSim musculoskeletal modeling/simulation - examples
+ OpenSim is a software platform for modeling humans, animals,
+ robots, and the environment, and simulating their interaction and movement. 
+ The software is used by the musculoskeletal biomechanics research
+ community. The core OpenSim libraries are written in C++.
+ .
+ This package contains C++ examples for OpenSim.

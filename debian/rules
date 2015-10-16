@@ -1,0 +1,28 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+.PHONY: override_dh_auto_configure \
+        override_dh_auto_build-indep \
+        override_dh_auto_install \
+        override_dh_strip
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+	    -DCMAKE_INSTALL_PREFIX:PATH=/usr \
+	    -DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo \
+	    -DBUILD_API_ONLY=ON \
+	    -DOPENSIM_COPY_SIMBODY=OFF \
+	    -DOPENSIM_INSTALL_UNIX_FHS=ON \
+	    -DBUILD_TESTING=OFF # TODO temporary
+
+override_dh_auto_build-indep:
+	dh_auto_build -- doxygen
+
+override_dh_auto_install:
+	dh_auto_install --buildsystem=cmake
+
+override_dh_strip:
+	dh_strip -a --dbg-package=libopensim-dbg
+
+%:
+	dh $@ --parallel --buildsystem=cmake

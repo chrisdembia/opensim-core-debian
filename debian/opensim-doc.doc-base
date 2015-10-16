@@ -1,0 +1,9 @@
+Document: opensim
+Title: C++ API reference
+Author: OpenSim developers
+Abstract: Describes the C++ interface to the OpenSim library.
+Section: Programming/C++
+
+Format: HTML
+Index: /usr/share/doc/opensim/OpenSimAPI.html
+Files: /usr/share/doc/opensim/doc/*
